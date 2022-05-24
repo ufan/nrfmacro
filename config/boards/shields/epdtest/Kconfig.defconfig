@@ -1,0 +1,19 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if EPDTEST_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "EpdTest"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+if EPDTEST_LEFT || EPDTEST_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif

@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "encodertest.dtsi"
+
+&default_transform {
+	col-offset = <18>;
+};
+
+&right_encoder {
+	status = "okay";
+};

@@ -1,0 +1,8 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config ENCODER_TEST_LEFT
+	def_bool $(shields_list_contains,encodertest_left)
+
+config ENCODER_TEST_RIGHT
+	def_bool $(shields_list_contains,encodertest_right)
