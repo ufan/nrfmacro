@@ -6,5 +6,5 @@ arch: arm
 outputs:
   - usb
   - ble
-url: https://github.com/ufan/nrfmicro/
+url: https://github.com/ufan/nrfmacro/
 exposes: [pro_micro]

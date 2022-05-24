@@ -1,0 +1,8 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config OLEDTEST_LEFT
+	def_bool $(shields_list_contains,oledtest_left)
+
+config OLEDTEST_RIGHT
+	def_bool $(shields_list_contains,oledtest_right)

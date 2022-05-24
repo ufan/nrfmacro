@@ -11,7 +11,7 @@
 	chosen {
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &default_transform;
-		zmk,display = &epd;
+		zmk,display = &oled;
 	};
 
 	default_transform: keymap_transform_0 {
@@ -52,7 +52,7 @@
 
 };
 
-// enable epaper display
-&nrfmacro_spi {
+// enable oled display
+&nrfmacro_i2c {
   status = "okay";
 };

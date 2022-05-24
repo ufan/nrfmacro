@@ -10,7 +10,7 @@
 
 / {
 	model = "nrfmacro";
-	compatible = "nrfmacro";
+	compatible = "ufan,nrfmacro";
 
 	chosen {
 		zephyr,code-partition = &code_partition;
@@ -18,7 +18,6 @@
 		zephyr,flash = &flash0;
 		zephyr,console = &cdc_acm_uart;
 		zmk,battery = &vbatt;
-		zmk,display = &epd;
 	};
 
 	leds {
@@ -151,4 +150,28 @@
   }; 
 };
 
+&i2c1 {
+	compatible = "nordic,nrf-twi";
+	sda-pin = <34>;
+	scl-pin = <32>;
+  status = "disabled";
+
+  oled: ssd1306@3c {
+    compatible = "solomon,ssd1306fb";
+    reg = <0x3c>;
+    label = "DISPLAY";
+    width = <128>;
+    height = <32>;
+    segment-offset = <0>;
+    page-offset = <0>;
+    display-offset = <0>;
+    multiplex-ratio = <31>;
+    segment-remap;
+    com-invdir;
+    com-sequential;
+    prechargep = <0x22>;
+  };
+};
+
 nrfmacro_spi: &spi1 {};
+nrfmacro_i2c: &i2c1 {};
