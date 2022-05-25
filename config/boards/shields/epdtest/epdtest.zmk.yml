@@ -4,7 +4,7 @@ name: EpaperTest
 type: shield
 url: https://github.com/davidphilipbarr/Sweep
 requires: [pro_micro]
-exposes: [i2c_oled]
+exposes: [spi_epd]
 features:
   - keys:
 siblings:
