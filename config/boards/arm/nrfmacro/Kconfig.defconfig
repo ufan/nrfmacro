@@ -73,10 +73,10 @@ endif # NRFMACRO_OLED_DISPLAY
 if NRFMACRO_EPD_DISPLAY
 
 config LVGL_HOR_RES_MAX
-	default 128
+	default 80
 
 config LVGL_VER_RES_MAX
-	default 80
+	default 128
 
 config LVGL_VDB_SIZE
 	default 100
@@ -90,6 +90,9 @@ config LVGL_BITS_PER_PIXEL
 choice LVGL_COLOR_DEPTH
 	default LVGL_COLOR_DEPTH_1
 endchoice
+
+config LVGL_USE_CONT
+  default y
 
 endif # NRFMACRO_EPD_DISPLAY
 
