@@ -1,0 +1,12 @@
+file_format: "1"
+id: shieldtest
+name: TestShield
+type: shield
+url: https://github.com/davidphilipbarr/Sweep
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+siblings:
+  - shieldtest_left
+  - shieldtest_right

@@ -1,0 +1,19 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_TEST_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "TestShield"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+if SHIELD_TEST_LEFT || SHIELD_TEST_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif
