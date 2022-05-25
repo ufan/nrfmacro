@@ -126,7 +126,7 @@
   sck-pin = <22>;
   mosi-pin = <7>;
   cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
-  // not used, but required by spim binding
+  // not used, but required by spim binding; can be reuesd in the keymap for normal key press
   miso-pin = <5>;
 
   /* shield.dtsi */
