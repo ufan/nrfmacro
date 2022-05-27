@@ -21,6 +21,12 @@ config NRFMACRO_EPD_DISPLAY
   bool "Use epaper display"
   select SPI
   select IL0323
+	select LVGL_USE_CONT
+	select LVGL_FONT_MONTSERRAT_26
+	select LVGL_FONT_MONTSERRAT_20
+	select LVGL_FONT_MONTSERRAT_16
+	select LVGL_USE_LABEL
+	select LVGL_USE_IMG
 
 config NRFMACRO_OLED_DISPLAY
   bool "Ues OLED display"
@@ -94,16 +100,17 @@ endchoice
 config LVGL_USE_CONT
   default y
 
-# config LVGL_THEME_DEFAULT_COLOR_PRIMARY_BLACK
-#   bool
-#   default y
-
-# config LVGL_THEME_DEFAULT_COLOR_SECONDARY_WHITE
-#   bool
-#   default y
-
 endif # NRFMACRO_EPD_DISPLAY
 
 endif # LVGL
+
+menuconfig CUSTOM_WIDGET_BATTERY_STATUS
+	bool "custom battery status widget"
+
+menuconfig CUSTOM_WIDGET_OUTPUT_STATUS
+	bool "custom output status widget"
+
+menuconfig CUSTOM_WIDGET_LAYER_STATUS
+	bool "custom layer status widget"
 
 endif # BOARD_NRFMACRO
