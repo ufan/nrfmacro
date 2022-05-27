@@ -94,6 +94,14 @@ endchoice
 config LVGL_USE_CONT
   default y
 
+# config LVGL_THEME_DEFAULT_COLOR_PRIMARY_BLACK
+#   bool
+#   default y
+
+# config LVGL_THEME_DEFAULT_COLOR_SECONDARY_WHITE
+#   bool
+#   default y
+
 endif # NRFMACRO_EPD_DISPLAY
 
 endif # LVGL
