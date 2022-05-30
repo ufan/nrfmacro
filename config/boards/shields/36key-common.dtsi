@@ -226,7 +226,7 @@
             		&kp W &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
              		&kp A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &kp SQT 
                 &kp Z &kp X      &kp C     &kp V     &kp B    &kp N &kp M     &cmqus     &dtild      &kp SEMI
-                    &encoder  &kp &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT C &encoder
+                    &encoder  &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT C &encoder
              		>;
                 sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		    };
