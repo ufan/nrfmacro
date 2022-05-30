@@ -10,4 +10,4 @@
 #include <dt-bindings/zmk/outputs.h>
 
 
-#include "../keymap-common.dtsi"
+#include "../34key-common.dtsi"

@@ -221,6 +221,7 @@
                 &kp Z &kp X      &kp C     &kp V     &kp B    &kp N &kp M     &cmqus     &dtild      &kp SEMI
           			              &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT BSPC
              		>;
+                sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		    };
 
      		colemak_layer {
@@ -230,6 +231,7 @@
                 &kp Z &kp X      &kp C     &kp D     &kp V    &kp K &kp H     &cmqus    &dtild     &kp SEMI
           			              &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT BSPC
              		>;
+                sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		    };
 
         number_layer {
