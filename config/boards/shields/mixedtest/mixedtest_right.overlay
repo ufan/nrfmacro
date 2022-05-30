@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "mixedtest.dtsi"
+
+&default_transform {
+	col-offset = <17>;
+};
+
+// enable oled display
+&nrfmacro_i2c {
+  status = "okay";
+};
+
+// enable right encoder
+&right_encoder {
+	status = "okay";
+};

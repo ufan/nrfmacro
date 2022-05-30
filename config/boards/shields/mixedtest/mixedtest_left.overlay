@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "mixedtest.dtsi"
+
+// enable epaper display
+&nrfmacro_spi {
+  status = "okay";
+};
+
