@@ -47,5 +47,5 @@
 
 // enable right encoder
 &right_encoder {
-	status = "okay";
+	// status = "okay";
 };
