@@ -1,0 +1,12 @@
+file_format: "1"
+id: lcdtest
+name: LCDTest
+type: shield
+url: https://github.com/davidphilipbarr/Sweep
+requires: [pro_micro]
+exposes: [spi_epd]
+features:
+  - keys:
+siblings:
+  - lcdtest_left
+  - lcdtest_right

@@ -33,6 +33,18 @@ config NRFMACRO_OLED_DISPLAY
   select I2C
   select SSD1306
   select SSD1306_REVERSE_MODE
+
+config NRFMACRO_LCD_DISPLAY
+  bool "Use SHARP memory LCD"
+  select SPI
+  select LS0XX
+	select LVGL_USE_CONT
+	select LVGL_FONT_MONTSERRAT_26
+	# select LVGL_FONT_MONTSERRAT_20
+	# select LVGL_FONT_MONTSERRAT_16
+	# select LVGL_USE_LABEL
+	# select LVGL_USE_IMG
+
 endchoice
 
 if USB_DEVICE_STACK
@@ -101,6 +113,33 @@ config LVGL_USE_CONT
   default y
 
 endif # NRFMACRO_EPD_DISPLAY
+
+if NRFMACRO_LCD_DISPLAY
+
+choice LVGL_THEME_DEFAULT_FONT_SMALL
+    default LVGL_THEME_DEFAULT_FONT_SMALL_MONTSERRAT_36
+endchoice
+
+config LVGL_HOR_RES_MAX
+	default 160
+
+config LVGL_VER_RES_MAX
+	default 68
+
+config LVGL_VDB_SIZE
+	default 16
+
+config LVGL_DPI
+	default 30
+
+config LVGL_BITS_PER_PIXEL
+	default 1
+
+choice LVGL_COLOR_DEPTH
+	default LVGL_COLOR_DEPTH_1
+endchoice
+
+endif # NRFMACRO_LCD_DISPLAY
 
 endif # LVGL
 
