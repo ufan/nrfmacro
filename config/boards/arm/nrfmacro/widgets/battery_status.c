@@ -59,7 +59,7 @@ K_MUTEX_DEFINE(battery_status_mutex);
 
 struct {
     uint8_t level;
-#if IS_ENABLED(CONFIG_USB)
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
     bool usb_present;
 #endif
 } battery_status_state;
@@ -70,7 +70,7 @@ void set_battery_symbol(lv_obj_t *icon) {
 
     uint8_t level = battery_status_state.level;
 
-#if IS_ENABLED(CONFIG_USB)
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
     if (level > 95) {
         if (battery_status_state.usb_present) {
              lv_img_set_src(icon, &batt_100_chg);
@@ -111,7 +111,7 @@ void set_battery_symbol(lv_obj_t *icon) {
     //lv_label_set_text(label, text);
     //lv_img_set_src(icon, );
 
-#endif /* IS_ENABLED(CONFIG_USB) */
+#endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 
     k_mutex_unlock(&battery_status_mutex);
 
@@ -148,9 +148,9 @@ int battery_status_listener(const zmk_event_t *eh) {
 
     battery_status_state.level = bt_bas_get_battery_level();
 
-#if IS_ENABLED(CONFIG_USB)
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
     battery_status_state.usb_present = zmk_usb_is_powered();
-#endif /* IS_ENABLED(CONFIG_USB) */
+#endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 
     k_mutex_unlock(&battery_status_mutex);
 
@@ -160,6 +160,6 @@ int battery_status_listener(const zmk_event_t *eh) {
 
 ZMK_LISTENER(widget_battery_status, battery_status_listener)
 ZMK_SUBSCRIPTION(widget_battery_status, zmk_battery_state_changed);
-#if IS_ENABLED(CONFIG_USB)
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
 ZMK_SUBSCRIPTION(widget_battery_status, zmk_usb_conn_state_changed);
-#endif /* IS_ENABLED(CONFIG_USB) */
+#endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */

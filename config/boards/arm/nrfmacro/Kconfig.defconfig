@@ -47,6 +47,20 @@ config NRFMACRO_LCD_DISPLAY
 
 endchoice
 
+choice
+  prompt "Role of the keyboard"
+  default NRFMACRO_SHIELD_MASTER
+  help
+    Specify the role of the keyboard
+
+config NRFMACRO_SHIELD_MASTER
+  bool "master side, in charge of communication with host"
+
+config NRFMACRO_SHIELD_SLAVE
+  bool "slave side, acting as a peripheral to master side"
+
+endchoice
+
 if USB_DEVICE_STACK
 
 config USB_NRFX
