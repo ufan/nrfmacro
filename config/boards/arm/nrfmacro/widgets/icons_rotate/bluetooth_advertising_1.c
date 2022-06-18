@@ -58,7 +58,7 @@ const lv_img_dsc_t bluetooth_advertising_1 = {
   .header.always_zero = 0,
   .header.w = 54,
   .header.h = 35,
-  .data_size = 253,
+  .data_size = 254,
   .header.cf = LV_IMG_CF_INDEXED_1BIT,
   .data = bluetooth_advertising_1_map,
 };

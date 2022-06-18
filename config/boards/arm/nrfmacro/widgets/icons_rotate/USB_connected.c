@@ -57,7 +57,7 @@ const lv_img_dsc_t USB_connected = {
   .header.always_zero = 0,
   .header.w = 40,
   .header.h = 31,
-  .data_size = 163,
+  .data_size = 164,
   .header.cf = LV_IMG_CF_INDEXED_1BIT,
   .data = USB_connected_map,
 };
