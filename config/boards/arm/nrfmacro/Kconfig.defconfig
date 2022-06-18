@@ -66,6 +66,10 @@ config NRFMACRO_SHIELD_SLAVE
 
 endchoice
 
+# Rotate the display screen 180 degree (upside down)
+config NRFMACRO_ROTATE_SCREEN
+  bool "rotate the display screen upside down"
+
 # USB STACK setup
 if USB_DEVICE_STACK
 
