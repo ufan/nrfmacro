@@ -76,12 +76,12 @@ lv_obj_t *zmk_display_status_screen() {
 #if CONFIG_NRFMACRO_SHIELD_MASTER
     lv_obj_t * LayersHeading;
     LayersHeading = lv_img_create(screen, NULL);
-    lv_img_set_src(LayersHeading, &layers2);
 #if IS_ENABLED(CONFIG_NRFMACRO_ROTATE_SCREEN)
     lv_obj_align(LayersHeading, NULL, LV_ALIGN_IN_TOP_MID, 8, 5);
 #else
-    lv_obj_align(LayersHeading, NULL, LV_ALIGN_IN_BOTTOM_MID, 8, -5);
+    lv_obj_align(LayersHeading, NULL, LV_ALIGN_IN_BOTTOM_MID, 8, 5);
 #endif
+    lv_img_set_src(LayersHeading, &layers2);
 #endif
 
     //lv_task_handler();
