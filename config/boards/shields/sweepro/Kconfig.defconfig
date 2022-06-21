@@ -11,9 +11,19 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 
 endif
 
+if SWEEPRO_RIGHT
+config ZMK_KEYBOARD_NAME
+  default "Sweep-Pro-R"
+
+endif
+
 if SWEEPRO_LEFT || SWEEPRO_RIGHT
 
 config ZMK_SPLIT
 	default y
 
+config ZMK_USB
+	default y
+
 endif
+
