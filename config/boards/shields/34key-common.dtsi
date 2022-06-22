@@ -209,6 +209,37 @@
             key-positions = <4 24>;
             bindings = <&out OUT_TOG>;
         };
+
+        // ble selection
+        combo_ble1 {
+            timeout-ms = <50>;
+            key-positions = <14 24>;
+            bindings = <&bt BT_SEL 0>;
+        };
+
+        combo_ble2 {
+            timeout-ms = <50>;
+            key-positions = <13 23>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+        combo_ble3 {
+            timeout-ms = <50>;
+            key-positions = <12 22>;
+            bindings = <&bt BT_SEL 2>;
+        };
+
+        combo_ble4 {
+            timeout-ms = <50>;
+            key-positions = <11 21>;
+            bindings = <&bt BT_SEL 3>;
+        };
+
+        combo_ble5 {
+            timeout-ms = <50>;
+            key-positions = <10 20>;
+            bindings = <&bt BT_SEL 4>;
+        };
     };
 
     keymap {

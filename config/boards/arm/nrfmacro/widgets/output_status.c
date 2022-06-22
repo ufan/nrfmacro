@@ -82,7 +82,7 @@ void set_status_symbol(lv_obj_t *icon) {
                 //sprintf(text, LV_SYMBOL_BLUETOOTH "%i " LV_SYMBOL_OK, active_profile_index);
                 switch (active_profile_index) {
                 case 0:
-#if CONFIG_NRFMACRO_SHIELD_SLAVE
+#if IS_ENABLED(CONFIG_NRFMACRO_SHIELD_SLAVE)
                     lv_img_set_src(icon, &bluetooth_connected_right);
 #else
                     lv_img_set_src(icon, &bluetooth_connected_1);

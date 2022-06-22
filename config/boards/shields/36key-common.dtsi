@@ -216,6 +216,37 @@
             key-positions = <4 24>;
             bindings = <&out OUT_TOG>;
         };
+
+        // ble selection
+        combo_ble1 {
+            timeout-ms = <50>;
+            key-positions = <14 24>;
+            bindings = <&bt BT_SEL 0>;
+        };
+
+        combo_ble2 {
+            timeout-ms = <50>;
+            key-positions = <13 23>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+        combo_ble3 {
+            timeout-ms = <50>;
+            key-positions = <12 22>;
+            bindings = <&bt BT_SEL 2>;
+        };
+
+        combo_ble4 {
+            timeout-ms = <50>;
+            key-positions = <11 21>;
+            bindings = <&bt BT_SEL 3>;
+        };
+
+        combo_ble5 {
+            timeout-ms = <50>;
+            key-positions = <10 20>;
+            bindings = <&bt BT_SEL 4>;
+        };
     };
 
     keymap {
@@ -223,7 +254,7 @@
                 
      		default_layer {
         		bindings = <
-            		&kp W &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
+            		&kp Q &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
              		&kp A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &kp SQT 
                 &kp Z &kp X      &kp C     &kp V     &kp B    &kp N &kp M     &cmqus     &dtild      &kp SEMI
                     &encoder  &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT C &encoder
