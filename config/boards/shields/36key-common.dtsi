@@ -182,13 +182,13 @@
 
         combo_lsym {
             timeout-ms = <50>;
-            key-positions = <30 33>;
+            key-positions = <31 34>;
             bindings = <&tog SYM>;
         };
 
         combo_lnum {
             timeout-ms = <50>;
-            key-positions = <31 32>;
+            key-positions = <32 33>;
             bindings = <&tog NUM>;
         };
 
