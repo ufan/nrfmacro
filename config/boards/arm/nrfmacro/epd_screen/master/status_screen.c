@@ -51,7 +51,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_t * LayersHeading;
     LayersHeading = lv_img_create(screen, NULL);
     lv_obj_align(LayersHeading, NULL, LV_ALIGN_IN_BOTTOM_MID, 8, 5);
-    lv_img_set_src(LayersHeading, &layers2);
+    lv_img_set_src(LayersHeading, &layers);
 #endif
 
     lv_refr_now(NULL);

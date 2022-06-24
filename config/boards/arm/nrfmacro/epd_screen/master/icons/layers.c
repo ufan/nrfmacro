@@ -16,7 +16,7 @@
 #define LV_ATTRIBUTE_IMG_LAYERS
 #endif
 
-const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_LAYERS2 uint8_t layers_map[] = {
+const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_LAYERS uint8_t layers_map[] = {
   0x00, 0x00, 0x00, 0xff, 	/*Color of index 0*/
   0xff, 0xff, 0xff, 0xff, 	/*Color of index 1*/
 
