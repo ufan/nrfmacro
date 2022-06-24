@@ -11,7 +11,8 @@ zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
 zephyr_library_include_directories(${ZEPHYR_BASE}/drivers)
 
 zephyr_library_sources(status_screen.c)
-# zephyr_library_sources_ifdef(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS battery_status.c)
+zephyr_library_sources_ifdef(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS battery_status.c)
+zephyr_library_sources_ifdef(CONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS peripheral_status.c)
 
 # if (CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
 #   zephyr_library_sources(icons/batt_100.c)
