@@ -11,12 +11,12 @@ config BOARD
 # DISPLAY options: oled, epd, lcd, default: no display
 choice
   prompt "nrfmacro Display option"
-  default NRFMACRO_NO_DISPLAY
+  depends on ZMK_DISPLAY
   help
     Specify the type of the display peripheral.
 
-config NRFMACRO_NO_DISPLAY
-  bool "No display screen"
+# config NRFMACRO_NO_DISPLAY
+#   bool "No display screen"
 
 config NRFMACRO_EPD_DISPLAY
   bool "Use epaper display"
@@ -54,7 +54,6 @@ endchoice
 ## which widget to show on different side of the keyboard
 choice
   prompt "Role of the keyboard"
-  default NRFMACRO_SHIELD_MASTER
   help
     Specify the role of the keyboard
 
