@@ -69,6 +69,23 @@ endchoice
 config NRFMACRO_ROTATE_SCREEN
   bool "rotate the display screen upside down"
 
+# Show product mark on the screen
+config NRFMACRO_SCREEN_MARK_LOGO
+  bool "show the mark logo on the screen"
+
+choice
+  prompt "Keyboard logo on the display screen"
+  help
+    Specify which logo to show on the centre of screen
+
+config NRFMACRO_SCREEN_STANDARD_LOGO
+  bool "Use the standard logo distributed with the firmware source"
+
+config NRFMACRO_SCREEN_CUSTOM_LOGO
+  bool "Use the customized logo designed by yourself"
+
+endchoice
+
 # USB STACK setup
 if USB_DEVICE_STACK
 

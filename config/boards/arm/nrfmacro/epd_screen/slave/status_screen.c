@@ -11,6 +11,10 @@
 #include <logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
+#include <zmk/display.h>
+LV_IMG_DECLARE(marklogo);
+LV_IMG_DECLARE(stdlogo);
+
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
 static struct zmk_widget_battery_status battery_status_widget;
 #endif
@@ -38,8 +42,22 @@ lv_obj_t *zmk_display_status_screen() {
 
     // todo:
     // 1. a product mark line (sweep-pro)
+#if IS_ENABLED(CONFIG_NRFMACRO_SCREEN_MARK_LOGO)
+    lv_obj_t * marklogo_icon;
+    marklogo_icon = lv_img_create(screen, NULL);
+    lv_img_set_src(marklogo_icon, &marklogo);
+    lv_obj_align(marklogo_icon, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, -3);
+#endif
     // 2. a product logo
+#if IS_ENABLED(CONFIG_NRFMACRO_SCREEN_STANDARD_LOGO)
+    lv_obj_t * stdlogo_icon;
+    stdlogo_icon = lv_img_create(screen, NULL);
+    lv_img_set_src(stdlogo_icon, &stdlogo);
+    lv_obj_align(stdlogo_icon, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, -32);
+#endif
     // 3. configurable personal logo, which can replace the product logo
+
+    lv_refr_now(NULL);
 
     return screen;
 }

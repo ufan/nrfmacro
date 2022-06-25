@@ -11,7 +11,7 @@
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #include <zmk/display.h>
-#include <zmk/display/widgets/battery_status.h>
+#include "battery_status.h"
 #include <zmk/usb.h>
 #include <zmk/events/usb_conn_state_changed.h>
 #include <zmk/event_manager.h>
