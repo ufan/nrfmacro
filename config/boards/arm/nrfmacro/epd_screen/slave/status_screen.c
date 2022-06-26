@@ -13,7 +13,12 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #include <zmk/display.h>
 LV_IMG_DECLARE(marklogo);
+#if IS_ENABLED(CONFIG_NRFMACRO_SCREEN_STANDARD_LOGO)
 LV_IMG_DECLARE(stdlogo);
+#endif
+#if IS_ENABLED(CONFIG_NRFMACRO_SCREEN_CUSTOM_LOGO)
+LV_IMG_DECLARE(customlogo);
+#endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
 static struct zmk_widget_battery_status battery_status_widget;
@@ -56,6 +61,12 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(stdlogo_icon, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, -32);
 #endif
     // 3. configurable personal logo, which can replace the product logo
+#if IS_ENABLED(CONFIG_NRFMACRO_SCREEN_CUSTOM_LOGO)
+    lv_obj_t * customlogo_icon;
+    customlogo_icon = lv_img_create(screen, NULL);
+    lv_img_set_src(customlogo_icon, &customlogo);
+    lv_obj_align(customlogo_icon, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, -32);
+#endif
 
     lv_refr_now(NULL);
 

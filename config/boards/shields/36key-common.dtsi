@@ -199,15 +199,15 @@
         };
 
         // output selection
-        combo_outusb {
-            timeout-ms = <50>;
-            key-positions = <4 14>;
-            bindings = <&out OUT_USB>;
-        };
+        // combo_outusb {
+        //     timeout-ms = <50>;
+        //     key-positions = <4 14>;
+        //     bindings = <&out OUT_USB>;
+        // };
  
         combo_outble {
             timeout-ms = <50>;
-            key-positions = <14 24>;
+            key-positions = <4 14>;
             bindings = <&out OUT_BLE>;
         };
 
