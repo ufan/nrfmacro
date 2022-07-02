@@ -9,4 +9,5 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#include "../36key-common.dtsi"
+// #include "../36key-common.dtsi"
+#include "../36key-common-alternative.dtsi"

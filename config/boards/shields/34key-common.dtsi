@@ -1,6 +1,6 @@
 
 #define DEFAULT 0
-#define COLEMAK 1
+#define QWERT   1
 #define NUM     2
 #define SYM     3
 
@@ -247,19 +247,19 @@
                 
      		default_layer {
         		bindings = <
-            		&kp Q &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
-             		&kp A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &kp SQT 
-                &kp Z &kp X      &kp C     &kp V     &kp B    &kp N &kp M     &cmqus     &dtild      &kp SEMI
+            		&kp Q &kp W      &kp F     &kp P     &kp B    &kp J &kp L     &kp U     &kp Y      &kp SQT
+             		&kp A &mt LSFT R &lt SYM S &lt NUM T &kp G    &kp M &lt NUM N &lt SYM E &mt RSFT I &kp O
+                &kp Z &kp X      &kp C     &kp D     &kp V    &kp K &kp H     &cmqus    &dtild     &kp SEMI
           			              &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT BSPC
              		>;
                 sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		    };
 
-     		colemak_layer {
+     		qwert_layer {
         		bindings = <
-            		&kp Q &kp W      &kp F     &kp P     &kp B    &kp J &kp L     &kp U     &kp Y      &kp SQT
-             		&kp A &mt LSFT R &lt SYM S &lt NUM T &kp G    &kp M &lt NUM N &lt SYM E &mt RSFT I &kp O
-                &kp Z &kp X      &kp C     &kp D     &kp V    &kp K &kp H     &cmqus    &dtild     &kp SEMI
+            		&kp Q &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
+             		&kp A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &kp SQT 
+                &kp Z &kp X      &kp C     &kp V     &kp B    &kp N &kp M     &cmqus     &dtild      &kp SEMI
           			              &mt LALT TAB  &mt LCTL SPACE    &mt RCTL RET    &mt RALT BSPC
              		>;
                 sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -277,7 +277,7 @@
 
         symbol_layer {
             bindings = <
-                &none     &none    &kp LT    &kp GT   &kp PRCNT   &kp AMPS &kp CARET &kp LBRC &kp RBRC &tog COLEMAK
+                &none     &none    &kp LT    &kp GT   &kp PRCNT   &kp AMPS &kp CARET &kp LBRC &kp RBRC &tog QWERT
                 &kp GRAVE &kp EXCL &kp MINUS &kp PLUS &kp EQUAL   &kp PIPE &kp COLON &kp LPAR &kp RPAR &kp AT
                 &none     &none    &kp SLASH &kp STAR &kp BSLH    &kp HASH &kp DLLR  &kp LBKT &kp RBKT &none  
                                              &none    &none       &none    &none

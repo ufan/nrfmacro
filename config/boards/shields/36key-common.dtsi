@@ -1,6 +1,6 @@
 
 #define DEFAULT 0
-#define COLEMAK 1
+#define QWERT   1
 #define NUM     2
 #define SYM     3
 
@@ -262,7 +262,7 @@
                 sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp UP DOWN>;
 		    };
 
-     		colemak_layer {
+     		qwert_layer {
         		bindings = <
             		&kp Q &kp W      &kp F     &kp P     &kp B    &kp J &kp L     &kp U     &kp Y      &kp SQT
              		&kp A &mt LSFT R &lt SYM S &lt NUM T &kp G    &kp M &lt NUM N &lt SYM E &mt RSFT I &kp O
@@ -284,7 +284,7 @@
 
         symbol_layer {
             bindings = <
-                &none     &none    &kp LT    &kp GT   &kp PRCNT   &kp AMPS &kp CARET &kp LBRC &kp RBRC &tog COLEMAK
+                &none     &none    &kp LT    &kp GT   &kp PRCNT   &kp AMPS &kp CARET &kp LBRC &kp RBRC &tog QWERT
                 &kp GRAVE &kp EXCL &kp MINUS &kp PLUS &kp EQUAL   &kp PIPE &kp COLON &kp LPAR &kp RPAR &kp AT
                 &none     &none    &kp SLASH &kp STAR &kp BSLH    &kp HASH &kp DLLR  &kp LBKT &kp RBKT &none  
                                       &encoder  &none    &none       &none    &none  &encoder
