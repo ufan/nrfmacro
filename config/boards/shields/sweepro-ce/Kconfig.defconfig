@@ -1,23 +1,23 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SWEEPRO_LEFT
+if SWEEPRO_CE_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "Sweep-Pro"
+	default "SweepPro-CE"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
 
 endif
 
-if SWEEPRO_RIGHT
+if SWEEPRO_CE_RIGHT
 config ZMK_KEYBOARD_NAME
-  default "Sweep-Pro-R"
+  default "SweepPro-CE-R"
 
 endif
 
-if SWEEPRO_LEFT || SWEEPRO_RIGHT
+if SWEEPRO_CE_LEFT || SWEEPRO_CE_RIGHT
 
 config ZMK_SPLIT
 	default y
