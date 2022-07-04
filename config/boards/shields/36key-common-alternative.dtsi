@@ -11,6 +11,7 @@
         compatible = "zmk,keymap";
                 
      		default_layer {
+            label = "CLMK";
         		bindings = <
             		&kp Q &kp W      &kp F      &kp P      &kp B        &kp J     &kp L      &kp U      &kp Y      &kp SQT
              		&kp A &mt LSFT R &mt LALT S &mt LCTL T &lt NUM G    &lt NUM M &mt RCTL N &mt RALT E &mt RSFT I &kp O
@@ -21,6 +22,7 @@
 		    };
 
      		qwert_layer {
+            label = "QWRT";
         		bindings = <
             		&kp Q &kp W      &kp E     &kp R     &kp T    &kp Y &kp U     &kp I      &kp O       &kp P
              		&kp A &mt LSFT S &lt SYM D &lt NUM F &kp G    &kp H &lt NUM J &lt SYM K  &mt RSFT L  &kp SQT 
@@ -31,6 +33,7 @@
 		    };
 
         number_layer {
+            label = "NUM";
             bindings = <
                 &bt BT_NXT  &prv_tab  &kp UP    &nxt_tab   &spc1      &kp KP_PLUS     &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
                 &bt BT_PRV  &kp LEFT  &kp DOWN  &kp RIGHT  &spc2      &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_DIVIDE
@@ -41,6 +44,7 @@
         };
 
         symbol_layer {
+            label = "SYM";
             bindings = <
                 &none     &kp TILDE &kp LT    &kp GT   &kp PRCNT   &kp AMPS &kp CARET &kp LBRC &kp RBRC &tog QWERT
                 &kp GRAVE &kp EXCL  &kp MINUS &kp PLUS &kp EQUAL   &kp PIPE &kp COLON &kp LPAR &kp RPAR &kp AT
