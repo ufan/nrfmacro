@@ -175,3 +175,33 @@
 
 nrfmacro_spi: &spi1 {};
 nrfmacro_i2c: &i2c1 {};
+
+&spi0 {
+    status = "disabled";
+    sck-pin = <26>;
+    mosi-pin = <12>;
+    miso-pin = <7>;
+    cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+
+    // trackpad: trackpad@0 {
+    //     compatible = "cirque,pinnacle";
+    //     // status = "okay";
+    //     reg = <0>;
+    //     label = "cirque trackpad";
+    //     spi-max-frequency = <10000000>;
+    //     dr-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
+    //     invert-x;
+    //     sleep;
+    //     /* no-taps; */
+    // };
+
+    trackball: trackball@0 {
+        compatible = "pixart,pmw33xx";
+        reg = <0>;
+        label = "Pixart PMW3360";
+        cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+        motswk-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+        spi-max-frequency = <2000000>;
+        cpi = <600>;
+    };
+};

@@ -210,4 +210,8 @@ menuconfig CUSTOM_WIDGET_LAYER_STATUS
 menuconfig CUSTOM_WIDGET_PERIPHERAL_STATUS
 	bool "custom layer status widget"
 
+# add point device
+config NRFMACRO_POINTDEVICE
+  bool "add support for point device"
+  select SPI
 endif # BOARD_NRFMACRO

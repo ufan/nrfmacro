@@ -1,0 +1,8 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config POINTDEVICE_TEST_LEFT
+	def_bool $(shields_list_contains,pdtest_left)
+
+config POINTDEVICE_TEST_RIGHT
+	def_bool $(shields_list_contains,pdtest_right)
