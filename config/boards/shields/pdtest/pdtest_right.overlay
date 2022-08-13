@@ -9,3 +9,7 @@
 &default_transform {
 	col-offset = <17>;
 };
+
+&spi0 {
+  status = "okay";
+};
