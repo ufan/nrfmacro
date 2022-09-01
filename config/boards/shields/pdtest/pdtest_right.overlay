@@ -7,7 +7,7 @@
 #include "pdtest.dtsi"
 
 &default_transform {
-	col-offset = <17>;
+	col-offset = <1>;
 };
 
 &spi0 {

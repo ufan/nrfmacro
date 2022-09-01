@@ -6,6 +6,55 @@
 
 #include "pdtest.dtsi"
 
-&spi0 {
-  status = "okay";
+// &spi0 {
+//   status = "okay";
+// };
+
+// &trackball {
+//         scroll-layer = <2>;
+// };
+
+// &trackpad {
+//         scroll-layer = <2>;
+// };
+
+&pro_micro_spi {
+    status = "okay";
+    sck-pin = <15>;
+    mosi-pin = <17>;
+    miso-pin = <20>;
+    cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+
+    // trackpad: trackpad@0 {
+    //     compatible = "cirque,pinnacle";
+    //     status = "okay";
+    //     reg = <0>;
+    //     label = "cirque trackpad";
+    //     spi-max-frequency = <1000000>;
+    //     dr-gpios = <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+    //     invert-x;
+    //     sleep;
+    //     /* no-taps; */
+    // };
+
+    // trackball: trackball@0 {
+    //     compatible = "pixart,pmw33xx";
+    //     reg = <0>;
+    //     label = "Pixart PMW33xx";
+    //     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+    //     motswk-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    //     spi-max-frequency = <2000000>;
+    //     cpi = <1600>;
+    //     cpi-dividor = <4>;
+    // };
+
+    trackball: trackball@0 {
+        compatible = "pixart,pmw3360";
+        status = "okay";
+        reg = <0>;
+        label = "Pixart PMW3360";
+        irq-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        spi-max-frequency = <2000000>;
+        scroll-layer = <4>;
+    };
 };
