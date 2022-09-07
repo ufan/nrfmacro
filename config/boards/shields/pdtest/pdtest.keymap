@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/backlight.h>
 
 
 /{
@@ -26,7 +27,10 @@ behaviors {
                 
    		default_layer {
         		bindings = <
-            		&out OUT_TOG &td_reset &kp Q &kp W      
+            		// &out OUT_TOG &td_reset &kp Q &kp W      
+            		// &bl BL_TOG &td_reset &kp Q &kp W      
+                // &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp A &kp B &kp C &kp D &kp E &kp F &kp G
+                &bl BL_TOG &bt BT_CLR &bt BT_NXT &bt BT_PRV &out OUT_TOG &reset &bootloader &kp UP &kp DOWN &kp LEFT &kp RIGHT &out OUT_TOG &reset &bootloader
              		>;
 		    };
         };  

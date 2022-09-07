@@ -6,24 +6,13 @@
 
 #include "pdtest.dtsi"
 
-// &spi0 {
-//   status = "okay";
-// };
-
-// &trackball {
-//         scroll-layer = <2>;
-// };
-
-// &trackpad {
-//         scroll-layer = <2>;
-// };
-
-&pro_micro_spi {
-    status = "okay";
-    sck-pin = <15>;
-    mosi-pin = <17>;
-    miso-pin = <20>;
-    cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+/* for circque trackpad */
+// &pro_micro_spi {
+//     status = "okay";
+//     sck-pin = <15>;
+//     mosi-pin = <17>;
+//     miso-pin = <20>;
+//     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 
     // trackpad: trackpad@0 {
     //     compatible = "cirque,pinnacle";
@@ -36,6 +25,15 @@
     //     sleep;
     //     /* no-taps; */
     // };
+// };
+
+/* for pmw3360 (old driver) */
+// &pro_micro_spi {
+//     status = "okay";
+//     sck-pin = <15>;
+//     mosi-pin = <17>;
+//     miso-pin = <20>;
+//     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 
     // trackball: trackball@0 {
     //     compatible = "pixart,pmw33xx";
@@ -47,14 +45,78 @@
     //     cpi = <1600>;
     //     cpi-dividor = <4>;
     // };
+// };
+
+/* for pmw3360 (new driver) */
+// &pro_micro_spi {
+//     status = "okay";
+//     sck-pin = <15>;
+//     mosi-pin = <17>;
+//     miso-pin = <20>;
+//     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+
+    // trackball: trackball@0 {
+    //     compatible = "pixart,pmw3360";
+    //     status = "okay";
+    //     reg = <0>;
+    //     label = "Pixart PMW3360";
+    //     irq-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    //     spi-max-frequency = <2000000>;
+    //     scroll-layer = <4>;
+    // };
+// };
+
+/* for paw3395 */
+// &pro_micro_spi {
+//     status = "okay";
+//     sck-pin = <15>;
+//     mosi-pin = <17>;
+//     miso-pin = <20>;
+//     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+
+//     trackball: trackball@0 {
+//         compatible = "pixart,paw3395";
+//         status = "okay";
+//         reg = <0>;
+//         label = "Pixart PAW3395";
+//         irq-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+//         spi-max-frequency = <2000000>;
+//         scroll-layer = <4>;
+//     };
+// };
+
+/* for pmw3610 */
+/{
+	chosen {
+    zmk,backlight = &backlight;
+	};
+
+  // pull-up reset pin for pmw3610-breakout
+  backlight: gpioleds {
+     compatible = "gpio-leds";
+     label = "LED control";
+     gpio_led_0 {
+       gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
+       label = "LED";
+     };
+  };
+};
+
+&pro_micro_spi {
+    status = "okay";
+    sck-pin = <15>;
+    mosi-pin = <28>;
+    miso-pin = <28>; // same as mosi (3-wire spi)
+    cs-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {
-        compatible = "pixart,pmw3360";
+        compatible = "pixart,pmw3610";
         status = "okay";
         reg = <0>;
-        label = "Pixart PMW3360";
-        irq-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        label = "Pixart PMW3610";
+        irq-gpios = <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         spi-max-frequency = <2000000>;
+        duplex = <2048>; // required by 3-wire spi
         scroll-layer = <4>;
     };
 };
