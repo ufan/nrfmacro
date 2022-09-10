@@ -27,25 +27,6 @@
     // };
 // };
 
-/* for pmw3360 (old driver) */
-// &pro_micro_spi {
-//     status = "okay";
-//     sck-pin = <15>;
-//     mosi-pin = <17>;
-//     miso-pin = <20>;
-//     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-
-    // trackball: trackball@0 {
-    //     compatible = "pixart,pmw33xx";
-    //     reg = <0>;
-    //     label = "Pixart PMW33xx";
-    //     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-    //     motswk-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    //     spi-max-frequency = <2000000>;
-    //     cpi = <1600>;
-    //     cpi-dividor = <4>;
-    // };
-// };
 
 /* for pmw3360 (new driver) */
 // &pro_micro_spi {
@@ -73,6 +54,7 @@
 //     mosi-pin = <17>;
 //     miso-pin = <20>;
 //     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+//     // cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>, <&gpio0 31 GPIO_ACTIVE_HIGH>;
 
 //     trackball: trackball@0 {
 //         compatible = "pixart,paw3395";
@@ -119,4 +101,67 @@
         duplex = <2048>; // required by 3-wire spi
         scroll-layer = <4>;
     };
+};
+
+// lcd display use nrfmacro pin-out
+// / {
+//   chosen {
+//  		zephyr,display = &lcd;
+//   };
+// };
+// &nrfmacro_spi {
+//   status = "okay";
+//   compatible = "nordic,nrf-spim";
+//   sck-pin = <3>;
+//   mosi-pin = <45>;
+//   cs-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+//   // Unused pin, needed for SPI definition, but not used by the display driver itself.
+//   miso-pin = <45>; // 0.5 is not broken out on the nRFMicro
+
+// 	lcd: ls0xx@0 {
+// 		compatible = "sharp,ls0xx";
+// 		label = "DISPLAY";
+// 		spi-max-frequency = <2000000>;
+// 		reg = <0>;
+// 		width = <160>;
+// 		height = <68>;
+// 		// extcomin-gpios = <&pro_micro 2 GPIO_ACTIVE_HIGH>;
+// 		// extcomin-frequency = <60>;
+// 		// disp-en-gpios = <&pro_micro 3 GPIO_ACTIVE_HIGH>; 
+// 	};
+// };
+
+// epd display
+/ {
+  chosen {
+ 		zephyr,display = &shield_epd;
+  };
+};
+&nrfmacro_spi {
+  compatible = "nordic,nrf-spim";
+  sck-pin = <2>;
+  mosi-pin = <45>;
+  cs-gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;
+  // not used, but required by spim binding; can be reuesd in the keymap for normal key press
+  miso-pin = <45>;
+
+  // activate this device
+  status = "okay";
+
+  // spi-device: gooddisplay GDEW0102T4
+  shield_epd: il0323@0 {
+    compatible = "gooddisplay,il0323";
+    reg = <0>;
+    label = "DISPLAY";
+    spi-max-frequency = <4000000>;
+
+    height = <128>;
+    width = <80>;
+    reset-gpios = <&gpio0 3  GPIO_ACTIVE_LOW>;
+    dc-gpios    = <&gpio0 29  GPIO_ACTIVE_LOW>;
+    busy-gpios  = <&gpio1 11  GPIO_ACTIVE_LOW>;
+    pwr = [03 00 26 26];
+    cdi = <0xd2>;
+    tcon = <0x22>;
+  }; 
 };
