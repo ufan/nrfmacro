@@ -12,6 +12,60 @@
 
 
 /{
+    behaviors {
+      cmqus: comma_question {
+        compatible = "zmk,behavior-mod-morph";
+        label = "COMMA_QUESTION";
+        #binding-cells = <0>;
+        bindings = <&kp COMMA>, <&kp QUESTION>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+
+      dtsmi: dot_semi {
+        compatible = "zmk,behavior-mod-morph";
+        label = "DOT_SEMI";
+        #binding-cells = <0>;
+        bindings = <&kp DOT>, <&kp SEMI>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        masked_mods = <(MOD_LSFT|MOD_RSFT)>; // don't send shift
+      };
+    };
+
+    macros {
+    ZMK_MACRO(hello,
+        wait-ms = <0>;
+        tap-ms  = <10>;
+        bindings = <&kp H &kp E &kp L &kp L &kp O>;
+    )
+    };
+
+    // combos {
+    //     compatible = "zmk,combos";
+    //     combo_punc {
+    //         timeout-ms = <50>;
+    //         key-positions = <7 8>;
+    //         bindings = <&cmqus>;
+    //     };
+        
+    //      combo_lgui {
+    //         timeout-ms = <50>;
+    //         key-positions = <8 9>;
+    //         bindings = <&kp LGUI>;
+    //     };
+        
+    //      combo_fullscreen {
+    //         timeout-ms = <50>;
+    //         key-positions = <7 9>;
+    //         bindings = <&kp F11>;
+    //     };
+
+    //      combo_macro {
+    //         timeout-ms = <50>;
+    //         key-positions = <7 8 9>;
+    //         bindings = <&hello>;
+    //     };
+    // }; 
+
 behaviors {
         td_reset: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
@@ -20,6 +74,22 @@ behaviors {
             tapping-term-ms = <400>;
             bindings = <&reset>, <&bootloader>;
         };
+
+        td_number: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_NUMBER";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&kp B>, <&kp N1>;
+        };
+
+        td_layer: tap_layer_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_LAYER_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&tog 1>, <&tog 0>;
+        };
     };
 
     keymap {
@@ -27,11 +97,19 @@ behaviors {
                 
    		default_layer {
         		bindings = <
-            		// &out OUT_TOG &td_reset &kp Q &kp W      
-            		// &bl BL_TOG &td_reset &kp Q &kp W      
-                // &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp A &kp B &kp C &kp D &kp E &kp F &kp G
-                &bl BL_TOG &bt BT_CLR &bt BT_NXT &bt BT_PRV &out OUT_TOG &reset &bootloader &kp UP &kp DOWN &kp LEFT &kp RIGHT &out OUT_TOG &reset &bootloader
+                &tog 1 &bt BT_CLR &bt BT_NXT &bt BT_PRV &out OUT_TOG &reset &bootloader 
+                &kp PG_DN &td_layer &kp PG_UP
              		>;
+            slider-bindings = <&slv>;
+            trackball-bindings = <&tmv>;
 		    };
-        };  
+   		second_layer {
+        		bindings = <
+            &tog 1 &kp B &kp C &kp D &kp E &kp F &kp G
+                &kp C_VOL_UP &td_layer &kp C_VOL_DN
+             		>;
+            slider-bindings = <&skp2 LC(PLUS) LC(MINUS)>;
+            trackball-bindings = <&tkp2 LC(LS(TAB)) LC(TAB) LG(PG_UP) LG(PG_DN)>;
+		    };
+    };  
 };

@@ -67,7 +67,7 @@
 //     };
 // };
 
-/* for pmw3610 */
+/* for pmw3610, don't float the reset pin*/
 /{
 	chosen {
     zmk,backlight = &backlight;
@@ -82,9 +82,14 @@
        label = "LED";
      };
   };
+
+	trackballs {
+		compatible = "zmk,keymap-trackballs";
+		trackballs = <&trackball>;
+	};
 };
 
-&pro_micro_spi {
+&spi2 {
     status = "okay";
     sck-pin = <15>;
     mosi-pin = <28>;
@@ -99,7 +104,6 @@
         irq-gpios = <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         spi-max-frequency = <2000000>;
         duplex = <2048>; // required by 3-wire spi
-        scroll-layer = <4>;
     };
 };
 
@@ -132,36 +136,36 @@
 // };
 
 // epd display
-/ {
-  chosen {
- 		zephyr,display = &shield_epd;
-  };
-};
-&nrfmacro_spi {
-  compatible = "nordic,nrf-spim";
-  sck-pin = <2>;
-  mosi-pin = <45>;
-  cs-gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;
-  // not used, but required by spim binding; can be reuesd in the keymap for normal key press
-  miso-pin = <45>;
+// / {
+//   chosen {
+//  		zephyr,display = &shield_epd;
+//   };
+// };
+// &nrfmacro_spi {
+//   compatible = "nordic,nrf-spim";
+//   sck-pin = <2>;
+//   mosi-pin = <45>;
+//   cs-gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;
+//   // not used, but required by spim binding; can be reuesd in the keymap for normal key press
+//   miso-pin = <45>;
 
-  // activate this device
-  status = "okay";
+//   // activate this device
+//   status = "okay";
 
-  // spi-device: gooddisplay GDEW0102T4
-  shield_epd: il0323@0 {
-    compatible = "gooddisplay,il0323";
-    reg = <0>;
-    label = "DISPLAY";
-    spi-max-frequency = <4000000>;
+//   // spi-device: gooddisplay GDEW0102T4
+//   shield_epd: il0323@0 {
+//     compatible = "gooddisplay,il0323";
+//     reg = <0>;
+//     label = "DISPLAY";
+//     spi-max-frequency = <4000000>;
 
-    height = <128>;
-    width = <80>;
-    reset-gpios = <&gpio0 3  GPIO_ACTIVE_LOW>;
-    dc-gpios    = <&gpio0 29  GPIO_ACTIVE_LOW>;
-    busy-gpios  = <&gpio1 11  GPIO_ACTIVE_LOW>;
-    pwr = [03 00 26 26];
-    cdi = <0xd2>;
-    tcon = <0x22>;
-  }; 
-};
+//     height = <128>;
+//     width = <80>;
+//     reset-gpios = <&gpio0 3  GPIO_ACTIVE_LOW>;
+//     dc-gpios    = <&gpio0 29  GPIO_ACTIVE_LOW>;
+//     busy-gpios  = <&gpio1 11  GPIO_ACTIVE_LOW>;
+//     pwr = [03 00 26 26];
+//     cdi = <0xd2>;
+//     tcon = <0x22>;
+//   }; 
+// };

@@ -9,22 +9,40 @@
 / {
 
 	chosen {
-		zmk,kscan = &kscan0;
+		zmk,kscan = &kscan;
 		zmk,matrix_transform = &default_transform;
 	};
 
 	default_transform: keymap_transform_0 {
 		compatible = "zmk,matrix-transform";
-		columns = <14>;
-		rows = <1>;
+		columns = <7>;
+		rows = <2>;
 		map = <
-		RC(0,0)  RC(0,1) RC(0,2)  RC(0,3)  RC(0,4) RC(0,5) RC(0,6) RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11) RC(0,12) RC(0,13)
+		RC(0,0)  RC(0,1) RC(0,2)  RC(0,3)  RC(0,4) RC(0,5) RC(0,6) 
+    RC(1,0)  RC(1,1) RC(1,2)
 		>;
 	};
 
-	kscan0: kscan {
-		compatible = "zmk,kscan-gpio-direct";
+	kscan: kscan {
+		compatible = "zmk,kscan-composite";
 		label = "KSCAN";
+		rows = <2>;
+		columns = <7>;
+
+		normal_keys {
+			kscan = <&kscan0>;
+		};
+
+		touch_keys: touch_keys {
+			kscan = <&kscan1>;
+      row-offset = <1>;
+			// column-offset = <2>;
+		};
+	};
+
+	kscan0: kscan0 {
+		compatible = "zmk,kscan-gpio-direct";
+		label = "KEYBOARD-MATRIX";
 		input-gpios
 		= <&gpio0  6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
 		, <&gpio0  8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
@@ -36,4 +54,25 @@
 		;
 	};
 
+	sliders {
+		compatible = "zmk,keymap-sliders";
+		sliders = <&kscan1>;
+	};
+
 };
+
+  &i2c0 {
+	  compatible = "nordic,nrf-twi";
+	  sda-pin = <45>;
+  	scl-pin = <2>;
+    status = "okay";
+
+	  kscan1: kscan1@28 {
+		  compatible = "zmk,kscan-cap1203";
+      status = "okay";
+      reg = <0x28>;
+		  label = "SLIDER";
+		  int-gpios
+		  = <&gpio1  11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+	  };
+  };
